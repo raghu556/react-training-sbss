@@ -6,28 +6,54 @@ import CustomerForm from './CustomerForm';
 import CounterApp from '../examples/counter-example';
 import 'bootstrap/dist/css/bootstrap.min.css';
 class CustomerApp extends React.Component {
-    render() {
-        const customers = [{
-            "CustomerCode": "C001",
-            "CustomerName": "Kumar",
-            "CustomerAddress": "Mumbai",
-            "CustomerAmount": "1000",
-        },
-        {
-            "CustomerCode": "C002",
-            "CustomerName": "Rajesh",
-            "CustomerAddress": "Pune",
-            "CustomerAmount": "2000",
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            customers: [],
+            isSuccessfull: true
         }
-        ]
+        this.onParentSubmit = this.onParentSubmit.bind(this);
+    }
+
+    onParentSubmit(customer) {
+        try {
+            if(customer) {
+                this.setState((prevState) => {
+                    return {
+                        customers: [            //Spread Customers
+                            ...prevState.customers,
+                            customer
+                        ]
+                    }
+                })
+            }
+            else {
+                this.setState((prevState) => {
+                    return {
+                        isSuccessfull: false
+                    }
+                })
+            }
+        }
+        catch(err) {
+            this.setState((prevState) => {
+                return {
+                    isSuccessfull: false
+                }
+            })
+        }
+    }
+
+    render() {
         return (
             <div className="container">
-                <Header title="NEW" subTitle="Customer App" />
-                <CustomerForm/>
-                <CustomerList customers={customers} />
-                <hr/>
-                <CounterApp/>
-                <hr/>
+                <Header title="SBSS" subTitle="Customer App" />
+                <CustomerForm onParentSubmit={this.onParentSubmit} isSuccessfull={this.state.isSuccessfull} />
+                <CustomerList customers={this.state.customers} />
+                <hr />
+                <CounterApp />
+                <hr />
             </div>
         );
     }

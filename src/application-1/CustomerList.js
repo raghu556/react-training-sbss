@@ -6,21 +6,32 @@ class CustomerList extends React.Component {
         console.log(this.props.customers);
         return (
             <div>
-                <table className="table table-striped table-bordered">
-                    <tbody>
-                        <tr>
-                            <th>Customer Code</th>
-                            <th>Customer Name</th>
-                            <th>Customer Address</th>
-                            <th>Customer Amount</th>
-                        </tr>
-                        {
-                            this.props.customers.map((customer, i) => {
-                                return <CustomerListItem key={i} row={customer} />
-                            })
-                        }
-                    </tbody>
-                </table>
+                <hr/>
+                {
+                    (this.props.customers.length <= 0) ? 
+                    <div class="text-center">
+                        <h3>No Customers in List</h3>
+                    </div>
+                    :
+                    <div>
+                        <h3>Customers List</h3>
+                        <table className="table table-striped table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Customer Code</th>
+                                    <th>Customer Name</th>
+                                    <th>Customer Address</th>
+                                    <th>Customer Amount</th>
+                                </tr>
+                                {
+                                    this.props.customers.map((customer, i) => {
+                                        return <CustomerListItem key={i} row={customer} />
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
             </div>
         );
     }

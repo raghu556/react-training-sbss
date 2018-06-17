@@ -43,8 +43,8 @@ class CounterApp extends React.Component {
     render() {
         return (
             <div className="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
+                <div className="col-md-4"></div>
+                <div className="col-md-4">
                     <h2>Counter Example</h2>
                     <div>Count = {this.state.count}</div>
                     <div>Message = {this.state.text}</div>
@@ -55,7 +55,7 @@ class CounterApp extends React.Component {
                         <button onClick={this.onReset}>Reset</button>&nbsp;
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div className="col-md-4"></div>
 
             </div>
         )

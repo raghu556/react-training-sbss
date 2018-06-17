@@ -2,29 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Header extends React.Component {
-    constructor(){
+    constructor() {
         super();
         this.TestProp = "something";
         this.test = this.test.bind(this);
     }
-    test(){
+    test() {
         console.log(this.TestProp)
     }
     render() {
         return (
             <div>
                 <div align="center">
-                    <h1 onClick={this.test} style={{ "backgroundColor": "lightgrey"}}>
-                    
-                     {this.props.title}
+                    <h1 onClick={this.test} style={{ "backgroundColor": "lightgrey" }}>
+
+                        {this.props.title}
                     </h1>
                 </div>
                 <hr />
                 <div align="center">
                     <h3>
-                    {this.props.subTitle}
+                        {this.props.subTitle}
                     </h3>
-                </div> 
+                </div>
             </div>
         );
     }
