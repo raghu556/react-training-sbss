@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/examples/redux-fundamentals.js',
     output: {
         path: __dirname + '/public',
         filename: 'bundle.js'

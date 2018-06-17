@@ -1,7 +1,6 @@
 {
     "customers": [
         {
-            "ID": "5cdafd91-4abf-429b-b442-022fb476f895",
             "CustomerCode": "C001",
             "CustomerName": "Rakesh",
             "CustomerAddress": "Mumbai",
